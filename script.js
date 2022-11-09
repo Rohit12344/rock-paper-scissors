@@ -69,6 +69,14 @@ function decideWinner(playerScore, computerScore)
 
 function game()
 {
+    const rock_btn = document.querySelector('.rock');
+    const paper_btn = document.querySelector('.paper');
+    const scissors_btn = document.querySelector('.scissors');
+
+    rock_btn.addEventListener('click' , playRound('rock',getComputerChoice));
+    paper_btn.addEventListener('click' , playRound('paper',getComputerChoice));
+    scissors_btn.addEventListener('click' , playRound('scissors',getComputerChoice));
+    /*
     let playerSelection, computerSelection;
     let playerScore = 0, computerScore = 0;
     let message;
@@ -92,7 +100,7 @@ function game()
         console.log(message);
     }
 
-    decideWinner(playerScore,computerScore);
+    decideWinner(playerScore,computerScore);*/
 }
 
 game();

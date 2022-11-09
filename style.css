@@ -1,0 +1,122 @@
+body{
+    background-color: #ffeb00;
+    font-family: 'Comfortaa', cursive;
+    padding:0 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+}
+
+p
+{
+    font-size: 30px;
+    font-weight: 700 ;
+    text-align: center;
+}
+
+.title
+{
+    font-size: 60px;
+    font-weight: 700 ;
+    text-align: center;
+    padding: 30px 0;
+}
+
+span
+{
+    font-size: 30px;
+    font-weight: 700 ;
+    text-align: center;
+}
+button
+{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right 0px bottom -30px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+}
+
+.rock
+{
+    background-image: url(./icons/noun-fist-477914.png);
+
+}
+
+.paper
+{
+    background-image: url(./icons/noun-wave-477912.png);
+
+}
+
+.scissors
+{
+    background-image: url(./icons/noun-scissors-477919.png);
+    background-position: right 0px bottom -35px;
+}
+
+.main-container
+{
+    padding-top: 90px;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    gap: 50px;
+    margin-bottom: 70px;
+}
+
+img{
+    width: 50px;
+    height: 50px;
+}
+
+
+.score-section
+{
+    border: 5px solid #020102;
+    border-radius: 30px;
+    padding: 40px 90px;
+
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+
+
+}
+
+.you,.computer
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+    row-gap: 20px;
+}
+
+button:hover
+{
+    background-color: #c3c6d1;
+    cursor: pointer;
+}
+
+hr
+{
+    background-color: #020102;
+    width: 100vw;
+    height: 10px;
+    margin: 0;
+    border: 0;
+}
+
+.your-score, .computer-score
+{
+    background-color: #ffffff;
+
+    text-align: center;
+    padding: 30px 40px;
+    border: 2px solid #020102;
+    border-radius: 20px;
+}
