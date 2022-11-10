@@ -4,15 +4,15 @@ function getComputerChoice()
 
     if(randomNumber === 0)
     {
-        return 'Rock';
+        return 'rock';
     }
     else if(randomNumber === 1)
     {
-        return 'Paper';
+        return 'paper';
     }
     else if(randomNumber === 2)
     {
-        return 'Scissors';
+        return 'scissors';
     }
 }
 
@@ -53,15 +53,12 @@ function playRound(playerSelection, computerSelection)
 
 function decideWinner(playerScore, computerScore)
 {
-    if(playerScore === computerScore)
+    if(playerScore === 5)
     {
-        console.log('Draw! No winner');
-    }
-    else if(playerScore > computerScore)
-    {
+
         console.log('Congratulations! You won.');
     }
-    else
+    else if(computerScore === 5)
     {
         console.log('Sorry, you lose. Computer won.');
     }
@@ -69,38 +66,58 @@ function decideWinner(playerScore, computerScore)
 
 function game()
 {
-    const rock_btn = document.querySelector('.rock');
-    const paper_btn = document.querySelector('.paper');
-    const scissors_btn = document.querySelector('.scissors');
+    const buttons = document.querySelectorAll('button');
 
-    rock_btn.addEventListener('click' , playRound('rock',getComputerChoice));
-    paper_btn.addEventListener('click' , playRound('paper',getComputerChoice));
-    scissors_btn.addEventListener('click' , playRound('scissors',getComputerChoice));
-    /*
-    let playerSelection, computerSelection;
+    const your_choice = document.querySelector('.yours');
+    const computer_choice = document.querySelector('.computers');
+
+    const pScore = document.querySelector('.your-score');
+    const cScore = document.querySelector('.computer-score');
+
+    let computerChoice,playerChoice;
     let playerScore = 0, computerScore = 0;
     let message;
 
-    for(let i = 0; i < 5; i++)
+    buttons.forEach((btn) =>
     {
-        playerSelection = prompt('Rock, Paper or Scissors? Enter below: ');
-        computerSelection = getComputerChoice();
-
-        message = playRound(playerSelection,computerSelection);
-
-        if(message.substr(0,8) === "You Win!")
+        btn.addEventListener('click' ,(e) =>
         {
-            playerScore++;
-        }
-        else if(message.substr(0,9) == 'You Lose!')
-        {
-            computerScore++;
-        }
+            if(playerScore !== 5 && computerScore !== 5)
+            {
+                computerChoice = getComputerChoice();
+                message = playRound('rock',computerChoice);
 
-        console.log(message);
-    }
+                switch(e.target.className)
+                {
+                    case 'rock':
+                        playerChoice = 'rock';
+                        break;
+                    case 'paper':
+                        playerChoice = 'paper';
+                        break;
+                    case 'scissors':
+                        playerChoice = 'scissors';             
+                }
 
-    decideWinner(playerScore,computerScore);*/
+                your_choice.textContent = playerChoice;
+                computer_choice.textContent = computerChoice;
+
+                if(message.substr(0,8) === "You Win!")
+                {
+                    playerScore++;
+                }
+                else if(message.substr(0,9) == 'You Lose!')
+                {
+                    computerScore++;
+                }
+                pScore.textContent = playerScore;
+                cScore.textContent = computerScore;
+            }
+
+            decideWinner(playerScore,computerScore);
+
+        })});   
+
 }
 
 game();

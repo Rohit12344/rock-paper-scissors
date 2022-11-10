@@ -64,7 +64,7 @@ button
     align-items: center;
     justify-content:space-between;
     gap: 50px;
-    margin-bottom: 70px;
+
 }
 
 img{
@@ -119,4 +119,23 @@ hr
     padding: 30px 40px;
     border: 2px solid #020102;
     border-radius: 20px;
+}
+
+.log
+{
+    width: 1000px;
+    display: flex;
+    justify-content: center;
+    gap: 200px;
+    margin-bottom: 30px;
+    font-size: 30px;
+}
+.yours
+{
+    width: 300px;
+}
+
+.computers
+{
+    width: 400px;
 }
