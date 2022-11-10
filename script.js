@@ -51,22 +51,14 @@ function playRound(playerSelection, computerSelection)
     }
 }
 
-function decideWinner(playerScore, computerScore)
-{
-    if(playerScore === 5)
-    {
-
-        console.log('Congratulations! You won.');
-    }
-    else if(computerScore === 5)
-    {
-        console.log('Sorry, you lose. Computer won.');
-    }
-}
-
 function game()
 {
+    const body = document.querySelector('body');
     const buttons = document.querySelectorAll('button');
+
+    const popup = document.querySelector('.pop-up');
+    const winnerMsg = document.querySelector('.winner');
+    const playAgainButton = document.querySelector('#play-again');
 
     const your_choice = document.querySelector('.yours');
     const computer_choice = document.querySelector('.computers');
@@ -112,12 +104,39 @@ function game()
                 }
                 pScore.textContent = playerScore;
                 cScore.textContent = computerScore;
+
+                if(playerScore === 5 || computerScore === 5)
+                {
+                    if(playerScore === 5)
+                    {
+                        winnerMsg.textContent = 'Congratulations, You won!';
+                    }
+                    else{
+                        winnerMsg.textContent = 'Sorry, you lose. Computer won.';
+                    }
+                    body.style.cssText = 'margin: 0; height: 100%; overflow: hidden';
+                    document.getElementById("overlay").style.display = "block";
+                    let temp = window.scrollY + 25/100 * window.innerHeight;
+                    let str = temp + 'px';
+                    popup.style.transform = `translate(-50%, ${str})`;
+                    popup.classList.add('transition');                   
+                }
             }
+        })});
 
-            decideWinner(playerScore,computerScore);
-
-        })});   
-
+    playAgainButton.addEventListener('click' , () => {
+        playerScore = 0;
+        computerScore = 0;
+        pScore.textContent = playerScore;
+        cScore.textContent = computerScore;
+        your_choice.textContent = '';
+        computer_choice.textContent = '';
+        popup.classList.remove('transition'); 
+        document.getElementById("overlay").style.display = "none";
+        body.style.removeProperty('margin');
+        body.style.removeProperty('height');
+        body.style.removeProperty('overflow');
+    })
 }
 
 game();
