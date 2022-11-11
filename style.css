@@ -98,12 +98,16 @@ img{
     row-gap: 12px;
 }
 
-button:hover
+ button:hover, button:active
 {
     background-color: #c3c6d1;
     cursor: pointer;
 }
 
+button:active
+{
+    background-color: #ffffff;
+}
 hr
 {
     background-color: #020102;
