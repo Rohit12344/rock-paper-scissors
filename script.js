@@ -100,7 +100,7 @@ function announceWinner() {
 
 function playGame(e) {
   if (playerScore !== 5 && computerScore !== 5) {
-    window.scrollTo(0, 290);
+    window.scrollTo(0, 250);
     computerChoice = getComputerChoice();
     getPlayerChoice(e);
     message = playRound(playerChoice, computerChoice);
